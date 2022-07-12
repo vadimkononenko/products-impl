@@ -7,5 +7,7 @@ to manage received data. App receives data from local .json file.
 ### Tech. stack: `Angular, HttpClientModule, Service`
 
 ### Application screenshots
+Item wasn't click
 ![screen](https://github.com/vadimkononenko/products-impl/blob/main/src/assets/screenshots/firstImg.png)
+Item clicked
 ![screen](https://github.com/vadimkononenko/products-impl/blob/main/src/assets/screenshots/secondImg.png)
