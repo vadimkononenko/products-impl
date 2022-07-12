@@ -1,10 +1,36 @@
 <div class="container">
   <div class="left">
-    <div class="product" (click)="showInfo()" *ngFor="let product of products">
+    <div class="product" (click)="showInfo(product)" *ngFor="let product of products">
       <p>{{product.ProductDescription}}</p>
     </div>
   </div>
   <div class="right">
+    <ng-container *ngIf="selectedProduct; else emptyInfo">
+      <p><span class="bold">ProductId:</span> {{selectedProduct.ProductId}}</p>
+      <p><span class="bold">ColorIdx:</span> {{selectedProduct.ColorIdx}}</p>
+      <p><span class="bold">ProductCode:</span> {{selectedProduct.ProductCode}}</p>
+      <p><span class="bold">Price:</span> {{selectedProduct.Price}}</p>
+      <p *ngIf="selectedProduct.VoDatum; else noExist">
+        <span class="bold">VoDatum:</span> {{selectedProduct.VoDatum}}
+      </p>
+      <p><span class="bold">IsHeavy:</span> {{selectedProduct.IsHeavy}}</p>
+      <p *ngIf="selectedProduct.RestrictedLands; else noExist">
+        <span class="bold">RestrictedLands:</span> {{selectedProduct.RestrictedLands}}
+      </p>
+      <p><span class="bold">IsFsk:</span> {{selectedProduct.IsFsk}}</p>
+      <p><span class="bold">IsOrdergruppeC:</span> {{selectedProduct.IsOrdergruppeC}}</p>
 
+      <button (click)="hideInfo()">hide</button>
+    </ng-container>
   </div>
 </div>
+
+<ng-template #emptyInfo>
+  <h3>Click on item on the left side to see details</h3>
+</ng-template>
+
+<ng-template #noExist let-prop>
+  <p>
+    No exist
+  </p>
+</ng-template>
